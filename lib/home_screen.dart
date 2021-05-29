@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rental_house/common_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -88,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 20.0),
                 width: double.infinity,
-                height: 130,
+                height: 150,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20),
@@ -129,9 +130,20 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                  hintText:
+                                      'Search Location (Ex : United States etc)',
+                                  hintStyle: TextStyle(
+                                    fontSize: 14,
+                                    color: Colors.grey,
+                                  ),
+                                  border: InputBorder.none,
+                                ),
+                                style: TextStyle(color: Colors.black),
                               ),
                             ),
                           ),
@@ -141,29 +153,193 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.grey,
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          // Container(
-                          //   decoration: BoxDecoration(
-                          //     shape: BoxShape.circle,
-                          //     color: Colors.blue,
-                          //     boxShadow: [
-                          //       BoxShadow(
-                          //         color: Colors.grey,
-                          //         spreadRadius: 1.1,
-                          //         blurRadius: 5,
-                          //         offset: Offset(4, 4),
-                          //       ),
-                          //     ],
-                          //   ),
-                          //   width: 20,
-                          //   height: 20,
-                          // )
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              color: Colors.blue,
+                            ),
+                            width: 100,
+                            height: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.all(7),
+                              child: Text(
+                                'Sulphur 1.5 Km ',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black45),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            width: 100,
+                            height: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.all(7),
+                              child: Text(
+                                'Liberty 1.2 Km ',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black45,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black45),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            width: 100,
+                            height: 30,
+                            child: Padding(
+                              padding: const EdgeInsets.all(6),
+                              child: Text(
+                                'Dummy 1 Km ',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  color: Colors.black45,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
                         ],
                       )
                     ],
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: 65,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 10,
+                          blurRadius: 10,
+                          offset: Offset(0, -0),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image(
+                          image: AssetImage('asset/images/house (1).png'),
+                        ),
+                        Text(
+                          'Rent Home',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 65,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 10,
+                          blurRadius: 10,
+                          offset: Offset(0, -0),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image(
+                          image: AssetImage('asset/images/buyhouse.png'),
+                        ),
+                        Text(
+                          'Buy Home',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Container(
+                    height: 65,
+                    width: 100,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          spreadRadius: 10,
+                          blurRadius: 10,
+                          offset: Offset(0, -0),
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Image(
+                          image: AssetImage('asset/images/sold.png'),
+                        ),
+                        Text(
+                          'Sold Home',
+                          style: TextStyle(color: Colors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'Top Owners at your Place',
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CommonWidget.topMentor(
+                      image: 'asset/images/Mask Group 2.png'),
+                  CommonWidget.topMentor(image: 'asset/images/Image 3.png'),
+                  CommonWidget.topMentor(image: 'asset/images/Image 7.png'),
+                  CommonWidget.topMentor(image: 'asset/images/Image 8.png'),
+                  CommonWidget.topMentor(image: 'asset/images/Image 9.png'),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                'Recently Uploaded House',
+                style: TextStyle(fontSize: 18),
+              )
             ],
           ),
         ),
