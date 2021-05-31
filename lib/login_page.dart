@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rental_house/bottombar.dart';
 import 'package:rental_house/home_screen.dart';
+import 'package:rental_house/phone_number.dart';
 import 'package:rental_house/signup_page.dart';
 import 'package:rental_house/verify_phone_number.dart';
 
@@ -197,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => HomeScreen(),
+                                        builder: (context) => BottombarBar(),
                                       ),
                                     );
                                   },
@@ -253,7 +255,7 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Verification(),
+                              builder: (context) => PhoneNumber(),
                             ),
                           );
                         },

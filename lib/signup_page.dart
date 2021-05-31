@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rental_house/bottombar.dart';
 import 'package:rental_house/verify_phone_number.dart';
 
 class SignupPage extends StatefulWidget {
@@ -224,11 +225,21 @@ class _SignupPageState extends State<SignupPage> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(
-                                  'LOGIN',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 16,
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => BottombarBar(),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'LOGIN',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 16,
+                                    ),
                                   ),
                                 ),
                                 Container(

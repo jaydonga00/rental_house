@@ -78,7 +78,7 @@ class CommonWidget {
                       topLeft: Radius.circular(15),
                       topRight: Radius.circular(15)),
                   image: DecorationImage(
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                     image: AssetImage('$image'),
                     alignment: Alignment.topCenter,
                   ),
