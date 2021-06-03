@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:rental_house/home_screen.dart';
+import 'package:rental_house/search.dart';
 
-
-class BottombarBar extends StatefulWidget {
+class BottomBar extends StatefulWidget {
   @override
-  _BottombarBarState createState() => _BottombarBarState();
+  _BottomBarState createState() => _BottomBarState();
 }
 
-class _BottombarBarState extends State<BottombarBar> {
-  int currentIndex = 2;
+class _BottomBarState extends State<BottomBar> {
+  int currentIndex = 4;
 
   List<Widget> currentPage = [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    SearchPage(),
+    SearchPage(),
+    SearchPage(),
+    SearchPage(),
     HomeScreen(),
   ];
 
@@ -37,7 +38,8 @@ class _BottombarBarState extends State<BottombarBar> {
                 child: Column(
                   children: [
                     Image(
-                      image: AssetImage('asset/icons/Icon ionic-ios-heart-empty.png'),
+                      image: AssetImage(
+                          'asset/icons/Icon ionic-ios-heart-empty.png'),
                       color: currentIndex == 0 ? Colors.blue : Colors.black54,
                     ),
                   ],
@@ -59,9 +61,7 @@ class _BottombarBarState extends State<BottombarBar> {
                 child: Column(
                   children: [
                     Image(
-                      image: AssetImage(
-                        'asset/icons/address (1).png'
-                      ),
+                      image: AssetImage('asset/icons/address (1).png'),
                       color: currentIndex == 2 ? Colors.blue : Colors.black54,
                     ),
                   ],
@@ -81,14 +81,14 @@ class _BottombarBarState extends State<BottombarBar> {
                 ),
               ),
               InkWell(
-                onTap: () => setState(() => currentIndex = 3),
+                onTap: () => setState(() => currentIndex = 4),
                 child: Column(
                   children: [
                     Image(
                       image: AssetImage(
                         'asset/icons/Icon metro-home.png',
                       ),
-                      color: currentIndex == 3 ? Colors.blue : Colors.black54,
+                      color: currentIndex == 4 ? Colors.blue : Colors.black54,
                     ),
                   ],
                 ),

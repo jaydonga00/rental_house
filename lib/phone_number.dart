@@ -1,3 +1,6 @@
+import 'package:country_pickers/country.dart';
+import 'package:country_pickers/country_picker_dropdown.dart';
+import 'package:country_pickers/utils/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:rental_house/verify_phone_number.dart';
 
@@ -7,7 +10,6 @@ class PhoneNumber extends StatefulWidget {
 }
 
 class _PhoneNumberState extends State<PhoneNumber> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,6 +75,7 @@ class _PhoneNumberState extends State<PhoneNumber> {
               height: 8,
             ),
             Container(
+              padding: EdgeInsets.symmetric(horizontal: 15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(
                   Radius.circular(30),
@@ -87,22 +90,25 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   ),
                 ],
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(
-                      Icons.phone,
-                      color: Colors.black45,
-                    ),
-                    hintText: 'xxxxx yyyyy',
-                    hintStyle: TextStyle(
-                      color: Colors.grey,
-                    ),
-                    border: InputBorder.none,
+
+              child:  TextField(
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: "Phone Number",
+                  prefix:  CountryPickerDropdown(
+                    
+                    initialValue: 'in',
+                    itemBuilder: _buildDropdownItem,
+                    onValuePicked: (Country country) {
+                      print("${country.name}");
+                    },
                   ),
-                  style: TextStyle(color: Colors.black),
                 ),
+                onChanged: (value){
+                  // this.phoneNo=value;
+                },
+
               ),
             ),
             SizedBox(
@@ -116,7 +122,14 @@ class _PhoneNumberState extends State<PhoneNumber> {
                   style: TextStyle(fontSize: 17),
                 ),
                 FloatingActionButton(
-                  onPressed:() => Verification(),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Verification(),
+                      ),
+                    );
+                  },
                   child: const Icon(Icons.arrow_forward),
                   backgroundColor: Color(0xffFFAAAA),
                 ),
@@ -127,4 +140,13 @@ class _PhoneNumberState extends State<PhoneNumber> {
       ),
     );
   }
+  Widget _buildDropdownItem(Country country) => Container(
+    child: Row(
+      children: <Widget>[
+        CountryPickerUtils.getDefaultFlagImage(country),
+
+        Text("+${country.phoneCode}(${country.isoCode})",style: TextStyle(fontSize: 15),),
+      ],
+    ),
+  );
 }
